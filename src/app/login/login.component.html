@@ -1,0 +1,152 @@
+    
+                
+
+
+                    <div class="container-fluid bg-dark px-5 d-none d-lg-block">
+                        <div class="row gx-0">
+                            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</small>
+                                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</small>
+                                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>info@example.com</small>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 text-center text-lg-end">
+                                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-twitter fw-normal"></i></a>
+                                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
+                                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-linkedin-in fw-normal"></i></a>
+                                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-instagram fw-normal"></i></a>
+                                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Topbar End -->
+                    
+                    
+                    <!-- Navbar Start -->
+                    <div class="container-fluid position-relative p-0">
+                        <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+                            <a href="index.html" class="navbar-brand p-0">
+                                <h1 class="m-0"><i class="bi bi-file-richtext"></i>TeleQuotePro</h1>
+                            </a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                                <span class="fa fa-bars"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarCollapse">
+                                <div class="navbar-nav ms-auto py-0">
+                                    <a  class="nav-item nav-link" routerLink="">Home</a>
+                                    <a  class="nav-item nav-link" routerLink="/about">About</a>
+                                    <a  class="nav-item nav-link" routerLink="/service">Services</a>
+                                    <!-- <div class="nav-item dropdown">
+                                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Blog</a>
+                                        <div class="dropdown-menu m-0">
+                                            <a href="blog.html" class="dropdown-item">Blog Grid</a>
+                                            <a href="detail.html" class="dropdown-item">Blog Detail</a>
+                                        </div>
+                                    </div>
+                                    <div class="nav-item dropdown">
+                                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                                        <div class="dropdown-menu m-0">
+                                            <a href="price.html" class="dropdown-item">Pricing Plan</a>
+                                            <a href="feature.html" class="dropdown-item">Our features</a>
+                                            <a href="team.html" class="dropdown-item">Team Members</a>
+                                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                                            <a href="quote.html" class="dropdown-item">Free Quote</a>
+                                        </div>
+                                    </div> -->
+                                    <a  class="nav-item nav-link " routerLink="/contact">Contact</a>
+                                    <a  class="nav-item nav-link active" routerLink="/signin">Sign in</a>
+                                </div>
+                                <!-- <button type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button> -->
+                                <a  class="btn btn-primary py-2 px-4 ms-3" routerLink="/signup">Sign up</a>
+                            </div>
+                        </nav>
+                    
+                        <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
+                            <div class="row py-5">
+                                <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+                                    <h1 class="display-4 text-white animated zoomIn">Sign In</h1>
+                                    <a href="" class="h5 text-white">Home</a>
+                                    <i class="far fa-circle text-white px-2"></i>
+                                    <a href="" class="h5 text-white">Sign In</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Navbar End -->
+                    
+                    
+                 
+
+                    <!--form start>-->
+<div class="header home">
+                        <div class="hero row align-items-center">
+                        <div class="col-md-5">
+                          
+                            <h1><span>Best & trusted Quoting</span> Service</h1>
+                          <h3>Login in to get your Quote</h3>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form">
+                               
+                                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                                    <h3>Login here</h3>
+                                    
+
+                                    <div>
+
+                                        <label for="email">Email</label>
+                                      
+                                        <input class="form-control" type="email" id="email" formControlName="email" placeholder="your Email">
+                                      
+                                        <div *ngIf="loginForm.get('email')!.touched && loginForm.get('email')!.invalid">
+                                      
+                                          <small style="color: red;" *ngIf="loginForm.get('email')!.errors?.['required']">Email is required</small>
+                                      
+                                          <small style="color: red;" *ngIf="loginForm.get('email')!.errors?.['pattern']">email format is invalid [always end in org/in/com]</small>
+                                      
+                                        </div>
+                                      
+                                      </div>
+                                      
+                                      <div>
+                                      
+                                        <label for="password">Password</label>
+                                      
+                                        <input class="form-control" id="password" type="password" formControlName="password" placeholder="Password">
+                                      
+                                        <div *ngIf="loginForm.get('password')!.touched">
+                                      
+                                          <small style="color: red;" *ngIf="loginForm.get('password')!.errors?.['required']">Password is required</small>
+                                      
+                                          <small style="color: red;" *ngIf="loginForm.get('password')!.errors?.['pattern']">Password should be like this Ramya@123 which contains atleast one uppercase, one lowercase,number and special characters @$!%*?& </small>
+                                      
+                                          <small style="color: red;" *ngIf="loginForm.get('password')!.errors?.['minlength']">Password should contain at least 8 characters atmost 15 characters</small>
+                                      
+                                        </div>
+                                      
+                                      </div>
+                                      
+                                      <div>
+                                      
+                                      <button class="btn btn-block"   type="submit" [disabled]="loginForm.invalid">Login</button><br><br>
+                                      <button class="btn btn-block" type="reset" >Clear</button>
+                                    </div>
+                                    <!-- <div *ngIf="loginError"  class="error-message">
+                                        {{ loginError }}
+                                      </div> -->
+                                      <div *ngIf="errorMessage" class="error-message" style="color:red">{{ errorMessage }}</div> 
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                  <!--form end-->
+                    
+                  <app-footer></app-footer>
+                    
+                    <!-- Back to Top -->
+                    <!-- <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a> -->
+                    

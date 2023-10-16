@@ -1,0 +1,300 @@
+
+<div>
+<nav class="navbar navbar-underline navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+    <a> <!-- <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5"> -->
+       
+       <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-richtext" viewBox="0 0 16 16">
+         <path d="M7 4.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm-.861 1.542 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047l1.888.974V7.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V7s1.54-1.274 1.639-1.208zM5 9a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z"/>
+         <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
+       </svg> -->
+         <h1 class="m-0 text-primary"> <i class="bi bi-file-richtext"></i>TeleQuotePro
+   
+         </h1>
+     </a>
+     
+     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+         <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse navbar-collapse" id="navbarCollapse">
+         <div class="navbar-nav ms-auto p-4 p-lg-0">
+             <a  class="nav-item nav-link " routerLink="/customerHome">Home</a>
+             <a  class="nav-item nav-link " routerLink="/customerHome">Business</a>
+
+             <a  class="nav-item nav-link active" routerLink="/Cusview products">View Products</a>
+            <!-- <button type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button> -->
+            <!-- <button type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button> -->
+
+             <a  class="nav-item nav-link" routerLink="/search products">Search Products </a>
+            
+          
+       
+         <a  class="nav-item nav-link" routerLink="/quote">Quoting List</a>
+        </div>
+         <a  class="btn btn-primary py-4 px-lg-5 d-none d-lg-block" routerLink="/logout">Log out<i class="fa fa-arrow-right ms-3"></i></a>
+       
+        </div>
+   </nav>
+</div>
+
+<!--form starts for veiw plans-->
+<div class="header home">
+    <div class="col-lg-6 wow slideInUp" >
+
+        <form>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <!-- <input type="select" class="form-control border-0 bg-light px-4" placeholder="Your Name" style="height: 55px;"> -->
+                  <label for="Location">Choose Location</label>
+                    <select  [(ngModel)]="selectedLocation" name="selectedLoction" (change)="onLocationSelect()" class="custom-select" class="form-control border-0 bg-light px-4" placeholder="choose location" style="height: 55px;">
+                        
+                        <option value=""  disabled>Choose a Location</option>
+                        <option *ngFor="let l of states" [ngValue]="l.locationId">{{l.locationName}}
+                       </option>
+                    </select>
+
+
+                    <label for="Location">Choose Location</label>
+                    <select  [(ngModel)]="selectedLocation" name="selectedLoction" (change)="onLocationSelect()" class="custom-select" class="form-control border-0 bg-light px-4" placeholder="choose location" style="height: 55px;">
+                        
+                        <option value=""  disabled>Choose a Location</option>
+                        <option *ngFor="let l of allLocation" [ngValue]="l.locationId">{{l.locationName}}
+                       </option>
+                    </select>
+                    
+                
+                </div>
+                <div class="col-md-6">
+                    <!-- <input type="email" class="form-control border-0 bg-light px-4" placeholder="Your Email" style="height: 55px;"> -->
+                    <label for="ptype">Choose Product type</label>
+                    <select  [(ngModel)]="ptype" name="type" class="custom-select" class="form-control border-0 bg-light px-4" placeholder="Your Name" style="height: 55px;">
+                        <option value="" selected disabled>Choose a product type</option>
+                        <option *ngFor="let t of ptypes" value="{{t}}">{{t}}</option>
+                    </select>
+                </div>
+                
+                <div class="col-mid-6">
+                    <!-- <button class="btn btn-primary w-100 py-3" type="submit">View Plans</button> -->
+                </div>
+            </div>
+        </form>
+    </div>
+   
+</div>
+<!--form end for veiw plans-->
+
+    
+    
+    
+
+
+<!-- 
+            <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="container py-5">
+                    <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                        <h5 class="fw-bold text-primary text-uppercase">Recharge Plans</h5>
+                        <h1 class="mb-0">We are offering exclusive plans</h1>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-lg-4" *ngFor="let product of products">
+                            <div class="card h-100">
+                                <div class="card-header bg-light text-primary text-center">
+                                    <h4 class="text-primary mb-1">&#x20B9;{{product.productName}}</h4>
+                                </div>
+                                <div class="card-body">
+
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <span>{{product.features[0]}}</span>
+                                        <i class="fa fa-check text-primary me-2"></i>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <span>{{product.features[1]}}</span>
+                                        <i class="fa fa-check text-primary me-2"></i>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <span>{{product.features[2]}}</span>
+                                        <i class="fa fa-check text-primary me-2"></i>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <span>{{product.features[3]}}</span>
+                                        <i class="fa fa-check text-primary me-2"></i>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <span>{{product.validity}}</span>
+                                        <i class="fa fa-check text-primary me-2"></i>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <span>{{product.price}}</span>
+                                        <i class="fa fa-check text-primary me-2"></i>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-3" *ngFor="let subscription of product.subscriptions">
+                                        <span>{{subscription.subscriptionName}}</span>
+                                        <i class="fa fa-check text-primary me-2"></i>
+                                    </div>
+                                    <hr>
+                                    
+                                </div>
+                                <div class="card-footer text-center">
+                                    <a href="" (click)="addQuote(product)" routerLink="/Cusview products" class="btn btn-primary mt-2 py-2 px-4">Get Quote</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             -->
+
+
+
+
+
+
+
+
+            <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="container py-5">
+                    <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                        <h5 class="fw-bold text-primary text-uppercase">Recharge Plans</h5>
+                        <h1 class="mb-0">We are offering exclusive plans</h1>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-lg-4" *ngFor="let product of products">
+                            <div class="card h-100 border-0 shadow-lg rounded p-3">
+                                <div class="card-header bg-light text-white text-center">
+                                    <h4 class="text-uppercase mb-0">&#x20B9;{{product.productName}}</h4>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-unstyled">
+                                        <li class="d-flex justify-content-between align-items-center mb-3">
+                                            <span>{{product.features[0]}}</span>
+                                            <i class="fa fa-check text-primary"></i>
+                                        </li>
+                                        <li class="d-flex justify-content-between align-items-center mb-3">
+                                            <span>{{product.features[1]}}</span>
+                                            <i class="fa fa-check text-primary"></i>
+                                        </li>
+                                        <li class="d-flex justify-content-between align-items-center mb-3">
+                                            <span>{{product.features[2]}}</span>
+                                            <i class="fa fa-check text-primary"></i>
+                                        </li>
+                                        <li class="d-flex justify-content-between align-items-center mb-3">
+                                            <span>{{product.features[3]}}</span>
+                                            <i class="fa fa-check text-primary"></i>
+                                        </li>
+                                        <li class="d-flex justify-content-between align-items-center mb-3">
+                                            <span>{{product.validity}}</span>
+                                            <i class="fa fa-check text-primary"></i>
+                                        </li>
+                                        <li class="d-flex justify-content-between align-items-center mb-3">
+                                            <span>{{product.price}}</span>
+                                            <i class="fa fa-check text-primary"></i>
+                                        </li>
+                                        <li class="d-flex justify-content-between align-items-center mb-3" *ngFor="let subscription of product.subscriptions">
+                                            <span>{{subscription.subscriptionName}}</span>
+                                            <i class="fa fa-check text-primary"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-footer text-center bg-light">
+                                    <a href="" (click)="addQuote(product)" routerLink="/Cusview products" class="btn btn-primary btn-lg">Get Quote</a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+
+
+<!-- 
+            <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="container py-5">
+                    <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                        <h5 class="fw-bold text-primary text-uppercase">Recharge Plans</h5>
+                        <h1 class="mb-0">We are offering exclusive plans</h1>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-lg-4" *ngFor="let product of products">
+                            <div class="card h-100 border-0 shadow rounded p-3">
+                                <div class="card-header bg-primary text-white text-center">
+                                    <h4 class="text-uppercase mb-0">{{product.productName}}</h4>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-unstyled">
+                                 
+                                        <li class="feature-item">{{product.features[0]}}</li>
+                                        <li class="feature-item">{{product.features[1]}}</li>
+                                        <li class="feature-item">{{product.features[2]}}</li>
+                                        <li class="feature-item">{{product.features[3]}}</li>
+                                        <li class="feature-item">{{product.validity}}</li>
+                                        <li class="feature-item">{{product.price}}</li>
+                                        <li *ngFor="let subscription of product.subscriptions" class="feature-item">{{subscription.subscriptionName}}</li>
+                                    </ul>
+                                </div>
+                                <div class="card-footer text-center bg-light">
+                                  
+                                    <a href="" (click)="addQuote(product)" routerLink="/Cusview products" class="btn btn-primary btn-lg">Get Quote</a>
+                                </div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 -->
+                                  <!-- Get Quote Button -->
+                                <!-- Subscription Service Logos (assuming you have logo URLs for these services)
+                                <div class="subscription-logos">
+                                    <img *ngIf="product.subscriptions.some(sub => ['Netflix', 'Hotstar', 'Amazon Prime'].includes(sub.subscriptionName))" [src]="getLogoUrl(product.subscriptions)" alt="Subscription Logo">
+                                </div> -->
+                                <!-- <img *ngIf="product.subscriptions.some(sub => ['Netflix', 'Hotstar', 'Amazon Prime'].includes(sub.subscriptionName))" src="URL_OF_YOUR_IMAGE" alt="Subscription Logo"> -->
+
+                            
+
+
+
+
+
+
+
+            
+                <!-- <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
+                    <div class="bg-white rounded shadow position-relative" style="z-index: 1;">
+                        <div class="border-bottom py-4 px-5 mb-4">
+                            <h4 class="text-primary mb-1">Standard Plan</h4>
+                            <small class="text-uppercase">For Medium Size Business</small>
+                        </div>
+                        <div class="p-5 pt-0">
+                            <h1 class="display-5 mb-3">
+                                <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>99.00<small
+                                    class="align-bottom" style="font-size: 16px; line-height: 40px;">/ Month</small>
+                            </h1>
+                            <div class="d-flex justify-content-between mb-3"><span>HTML5 & CSS3</span><i class="fa fa-check text-primary pt-1"></i></div>
+                            <div class="d-flex justify-content-between mb-3"><span>Bootstrap v5</span><i class="fa fa-check text-primary pt-1"></i></div>
+                            <div class="d-flex justify-content-between mb-3"><span>Responsive Layout</span><i class="fa fa-check text-primary pt-1"></i></div>
+                            <div class="d-flex justify-content-between mb-2"><span>Cross-browser Support</span><i class="fa fa-times text-danger pt-1"></i></div>
+                            <a href="" class="btn btn-primary py-2 px-4 mt-4">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
+                    <div class="bg-light rounded">
+                        <div class="border-bottom py-4 px-5 mb-4">
+                            <h4 class="text-primary mb-1">Advanced Plan</h4>
+                            <small class="text-uppercase">For Large Size Business</small>
+                        </div>
+                        <div class="p-5 pt-0">
+                            <h1 class="display-5 mb-3">
+                                <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>149.00<small
+                                    class="align-bottom" style="font-size: 16px; line-height: 40px;">/ Month</small>
+                            </h1>
+                            <div class="d-flex justify-content-between mb-3"><span>HTML5 & CSS3</span><i class="fa fa-check text-primary pt-1"></i></div>
+                            <div class="d-flex justify-content-between mb-3"><span>Bootstrap v5</span><i class="fa fa-check text-primary pt-1"></i></div>
+                            <div class="d-flex justify-content-between mb-3"><span>Responsive Layout</span><i class="fa fa-check text-primary pt-1"></i></div>
+                            <div class="d-flex justify-content-between mb-2"><span>Cross-browser Support</span><i class="fa fa-check text-primary pt-1"></i></div>
+                            <a href="" class="btn btn-primary py-2 px-4 mt-4">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  -->

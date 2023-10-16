@@ -1,0 +1,53 @@
+/* Center the table-container div */
+.table-container {
+    display: grid;
+    place-items: center;
+    height: 200vh; /* Ensure full viewport height */
+    margin-top: 40px;
+    margin-bottom:40px;
+    margin-left: 20px;
+    margin-right:20px;
+  }
+  
+  /* Style the table */
+  table {
+    width: 80%; /* Adjust the width as needed */
+    border-collapse: collapse;
+    margin-left: 120px;
+    margin-right: 30px;
+  }
+  
+  /* Style table headers */
+  th {
+    background-color: #4CAF50; /* Green color for header */
+    color: white;
+    text-align: left;
+    padding: 12px;
+  }
+  
+  /* Style table rows */
+  tr:nth-child(even) {
+    background-color: #f2f2f2; /* Alternate row color */
+  }
+  
+  /* Hover effect for table rows */
+  tr:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Style table cells */
+  td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  /* Remove right border from the last column to prevent extra line */
+  td:last-child {
+    border-right: none;
+  }
+  #msg
+  {
+    text-align: right;
+    margin-right: 150px;
+  }
+  

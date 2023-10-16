@@ -1,0 +1,343 @@
+
+<div class="container-fluid bg-dark px-5 d-none d-lg-block">
+    <div class="row gx-0">
+        <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</small>
+                <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</small>
+                <small class="text-light"><i class="fa fa-envelope-open me-2"></i>info@example.com</small>
+            </div>
+        </div>
+        <div class="col-lg-4 text-center text-lg-end">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-twitter fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-linkedin-in fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-instagram fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+
+
+<!-- Navbar Start -->
+<div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+        <a href="index.html" class="navbar-brand p-0">
+            <h1 class="m-0"><i class="bi bi-file-richtext"></i>TeleQuotePro</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a  class="nav-item nav-link" routerLink="">Home</a>
+                <a  class="nav-item nav-link" routerLink="/about">About</a>
+                <a  class="nav-item nav-link" routerLink="/service">Services</a>
+                <!-- <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Blog</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="blog.html" class="dropdown-item">Blog Grid</a>
+                        <a href="detail.html" class="dropdown-item">Blog Detail</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="price.html" class="dropdown-item">Pricing Plan</a>
+                        <a href="feature.html" class="dropdown-item">Our features</a>
+                        <a href="team.html" class="dropdown-item">Team Members</a>
+                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                        <a href="quote.html" class="dropdown-item">Free Quote</a>
+                    </div>
+                </div> -->
+                <a  class="nav-item nav-link " routerLink="/contact">Contact</a>
+                <a  class="nav-item nav-link " routerLink="/signin">Sign in</a>
+            </div>
+            <!-- <button type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button> -->
+            <a  class="btn btn-primary py-2 px-4 ms-3 active" routerLink="/signup">Sign up</a>
+        </div>
+    </nav>
+
+    <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
+        <div class="row py-5">
+            <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+                <h1 class="display-4 text-white animated zoomIn">Sign Up</h1>
+                <a href="" class="h5 text-white">Home</a>
+                <i class="far fa-circle text-white px-2"></i>
+                <a href="" class="h5 text-white">Sign Up</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Navbar End -->
+
+
+
+<!--register form start-->
+<div class="header home">
+<div class="col-lg-6 wow slideInUp" >
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label for="customer Name">Customer Name</label>
+                <input type="text" class="form-control btn-outline-dark border-0 bg-light px-4" formControlName="userName" [class.is-invalid]="userName.invalid && userName.touched" placeholder="Your Name" style="height: 55px;">
+            <div *ngIf="userName.touched">
+                <div *ngIf="userName.invalid">
+                    <small style="color: red;" *ngIf="userName.errors?.['required']">Customer Name required</small>
+                    <small style="color:red;" *ngIf="userName.errors?.['pattern']">Customer Name contain atleast 2 character only alphabets</small>
+                
+                </div>
+            </div>
+            </div>
+            <div class="col-md-6">
+                <label for="customer Email">Email</label>
+                <input type="email" class="form-control btn-outline-dark border-0 bg-light px-4" formControlName="email" placeholder="Your Email" [class.is-invalid]="email.invalid && email.touched" style="height: 55px;">
+                <div *ngIf="email.touched">
+                    <div *ngIf="email.invalid">
+                    <small style="color: red;" *ngIf="email.errors?.['required']">Customer email required</small>
+                    <small style="color: red;" *ngIf="email.errors?.['pattern']">email format is invalid [always end in org/in/com]</small>
+                        
+                    </div>
+                </div>
+           </div>
+
+           <div class="col-md-6">
+            <label for="customer password">password</label>
+            <input type="password" class="form-control btn-outline-dark border-0 bg-light px-4" formControlName="password" placeholder="Your password" [class.is-invalid]="password.invalid && password.touched" style="height: 55px;">
+            <div *ngIf="password.touched">
+                <div *ngIf="password.invalid">
+                <small style="color: red;" *ngIf="password.errors?.['required']">Customer password required</small>
+                <small style="color: red;" *ngIf="password.errors?.['pattern']">Password should be like this Ramya@123 which contains atleast one uppercase, one lowercase,number and special characters @$!%*?& 8-15 characters</small>
+                    
+                </div>
+            </div>
+       </div>
+
+       <div class="col-md-6">
+        <label for="customer dob">DOB</label>
+        <input type="date" class="form-control btn-outline-dark border-0 bg-light px-4" formControlName="dob" placeholder="Your DOB" [class.is-invalid]="dob.invalid && dob.touched" style="height: 55px;">
+        <div *ngIf="dob.touched">
+            <div *ngIf="dob.invalid">
+            <small style="color: red;" *ngIf="dob.errors?.['required']">Customer DOB required</small>
+            <!-- <small style="color: red;" *ngIf="validateDob(dob)">DOB should be before 2005</small> -->
+                
+            </div>
+        </div>
+   </div>
+         <div class="col-12">
+                <label for="customer Address">Address</label>
+                <textarea class="form-control border-0 btn-outline-dark bg-light px-4 py-3" rows="3" formControlName="address" placeholder="Address" [class.is-invalid]="address.invalid && address.touched"></textarea>
+                <div *ngIf="address.touched">
+                    <div *ngIf="address.invalid">
+                <small style="color: red;" *ngIf="address.errors?.['required']">Customer address required</small>
+           </div></div>
+            </div>
+
+            <!-- <div class="col-md-6">
+                <label for="customer city">City</label>
+                <input type="text" class="form-control btn-outline-dark border-0 bg-light px-4" formControlName="city" placeholder="Your City" [class.is-invalid]="city.invalid && city.touched" style="height: 55px;">
+                <div *ngIf="city.touched">
+                    <div *ngIf="city.invalid">
+                    <small style="color: red;" *ngIf="city.errors?.['required']">Customer city required</small>
+                    <small style="color: red;" *ngIf="city.errors?.['pattern']">city should contain only alphabets,dot and space</small>
+                        
+                    </div>
+                </div>
+           </div>
+
+           <div class="col-md-6">
+            <label for="customer state">State</label>
+            <input type="text" class="form-control btn-outline-dark border-0 bg-light px-4" formControlName="state" placeholder="Your State" [class.is-invalid]="state.invalid && state.touched" style="height: 55px;">
+            <div *ngIf="state.touched">
+                <div *ngIf="state.invalid">
+                <small style="color: red;" *ngIf="state.errors?.['required']">Customer state required</small>
+                <small style="color: red;" *ngIf="state.errors?.['pattern']">State should contain only alphabets ,dot and space</small>
+                    
+                </div>
+            </div>
+       </div> -->
+
+
+
+
+       <!--state start-->
+     
+        <div class="col-md-6">
+          <label for="inputState">State</label>
+          <select class="form-control btn-outline-dark border-0 bg-light px-4" formControlName="inputStates"  (change) ="onStateChange()"  id="inputState" style="height: 55px;">
+                              <option value="" selected>Select State</option>
+                              <option value="Andra Pradesh">Andra Pradesh</option>
+                              
+                              <option value="Karnataka">Karnataka</option>
+                              <option value="Kerala">Kerala</option>
+                              <option value="Madya Pradesh">Madya Pradesh</option>
+                              <option value="Maharashtra">Maharashtra</option>
+                              <option value="Manipur">Manipur</option>
+                              <option value="Meghalaya">Meghalaya</option>
+                              <option value="Mizoram">Mizoram</option>
+                              <option value="Nagaland">Nagaland</option>
+                              <option value="Orissa">Orissa</option>
+                              <option value="Punjab">Punjab</option>
+                              <option value="Rajasthan">Rajasthan</option>
+                              <option value="Sikkim">Sikkim</option>
+                              <option value="Tamil Nadu">Tamil Nadu</option>
+                              <option value="Telangana">Telangana</option>
+                              <option value="Tripura">Tripura</option>
+                              <option value="Uttaranchal">Uttaranchal</option>
+                              <option value="Uttar Pradesh">Uttar Pradesh</option>
+                              <option value="West Bengal">West Bengal</option>
+                              <option disabled style="background-color:#aaa; color:#fff">UNION Territories</option>
+                              <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                              <option value="Chandigarh">Chandigarh</option>
+                              <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                              <option value="Daman and Diu">Daman and Diu</option>
+                              <option value="Delhi">Delhi</option>
+                              <option value="Lakshadeep">Lakshadeep</option>
+                              <option value="Pondicherry">Pondicherry</option>
+                            </select>
+                            <div *ngIf="inputStates.touched">
+                                <div *ngIf="inputStates.invalid">
+                                <small style="color: red;" *ngIf="inputStates.errors?.['required']">Customer state required</small>
+                                <small style="color: red;" *ngIf="inputStates.errors?.['pattern']">State should contain only alphabets ,dot and space</small>
+                                    
+                                </div>
+                            </div>
+        </div>
+       <!--state end-->
+
+       <!--district start-->
+       <div class="col-md-6">
+
+        <label for="inputDistrict">District</label>
+    
+        <select class="form-control btn-outline-dark border-0 bg-light px-4" id="inputDistrict" formControlName="inputDistrict" (change) ="onDistrictChange()" style="height: 55px;">
+    
+            <option value="">-- select one -- </option>
+    
+            <option *ngFor="let district of districts" [value]="district" >{{ district }}</option>
+    
+        </select>
+        <div *ngIf="inputDistrict.touched">
+            <div *ngIf="inputDistrict.invalid">
+            <small style="color: red;" *ngIf="inputDistrict.errors?.['required']">Customer city required</small>
+            <small style="color: red;" *ngIf="inputDistrict.errors?.['pattern']">city should contain only alphabets,dot and space</small>
+                
+            </div>
+        </div>
+      </div>
+       <!--district end-->
+
+       <!-- <div class="col-md-6">
+        <label for="customer country">Country</label>
+        <input type="text" class="form-control btn-outline-dark border-0 bg-light px-4" formControlName="country" placeholder="Your Country" [class.is-invalid]="country.invalid && country.touched" style="height: 55px;">
+        <div *ngIf="country.touched">
+            <div *ngIf="country.invalid">
+            <small style="color: red;" *ngIf="country.errors?.['required']">Customer country required</small>
+            <small style="color: red;" *ngIf="country.errors?.['pattern']">Country should contain only alphabets,dot and space</small>
+                
+            </div>
+        </div>
+   </div>
+
+   <div class="col-md-6">
+    <label for="customer pincode">Pincode</label>
+    <input type="text" class="form-control btn-outline-dark border-0 bg-light px-4" formControlName="pincode" placeholder="Your pincode" [class.is-invalid]="pincode.invalid && pincode.touched" style="height: 55px;">
+    <div *ngIf="pincode.touched">
+        <div *ngIf="pincode.invalid">
+        <small style="color: red;" *ngIf="pincode.errors?.['required']">Customer pincode required</small>
+        <small style="color: red;" *ngIf="pincode.errors?.['pattern']">pincode should contain only numbers</small>
+            
+        </div>
+    </div>
+</div> -->
+
+<div class="col-md-6">
+    <label for="customer phoneno">Phoneno</label>
+    <input type="number" class="form-control btn-outline-dark border-0 bg-light px-4" formControlName="phoneno" placeholder="Your phoneno" [class.is-invalid]="phoneno.invalid && phoneno.touched" style="height: 55px;">
+    <div *ngIf="phoneno.touched">
+        <div *ngIf="phoneno.invalid">
+        <small style="color: red;" *ngIf="phoneno.errors?.['required']">Customer phoneno required</small>
+        <small style="color: red;" *ngIf="phoneno.errors?.['pattern']">phoneno should start in 6-9 and contain 10 digit only</small>
+            
+        </div>
+    </div>
+</div>
+
+<div class="col g-3">
+<label for="gender">Gender</label>
+<div class="form-check">
+
+    <input class="form-check-input" type="radio" id="male" formControlName="gender" value="male">
+  
+    <label class="form-check-label" for="male">
+  
+      Male
+  
+    </label>
+  
+  </div>
+  
+   
+  
+  <div class="form-check">
+  
+    <input class="form-check-input" type="radio" id="female" formControlName="gender" value="female">
+  
+    <label class="form-check-label" for="female">
+  
+      Female
+  
+    </label>
+  
+  </div>
+  <div>
+    
+  </div>
+  
+  
+  <div class="form-check">
+  
+    <input class="form-check-input" type="radio" id="other" formControlName="gender" value="other">
+  
+    <label class="form-check-label" for="other">
+  
+      Other
+  
+    </label>
+  
+  </div>
+  <div *ngIf="gender.touched">
+    <div *ngIf="gender.invalid">
+  <small style="color: red;" *ngIf="gender.errors?.['required']">Customer gender required</small>
+
+        </div>
+    </div></div>
+  
+
+
+            <div class="col-6">
+                <button class="btn btn-dark w-100 py-3" type="submit" [disabled]="registrationForm.invalid">Register</button>
+            </div>
+            <div class="col-6">
+                <button class="btn btn-dark w-100 py-3" type="reset">Clear</button>
+            
+            <div  style="color: rgb(8, 19, 6);"  *ngIf="message" class="sucessmessage">{{message}}</div>
+        </div></div>
+    </form>
+</div></div>
+<!--register form end-->
+
+
+
+
+<app-footer></app-footer> 
+
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script> -->
+<!-- Back to Top -->
+<!-- <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a> -->
+

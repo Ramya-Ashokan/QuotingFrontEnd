@@ -1,0 +1,29 @@
+  .header.home {
+       
+        margin-bottom: 50px;
+        background: linear-gradient(rgb(0, 122, 156), rgba(0, 125, 156, 0.9), rgb(0, 117, 156));
+        background-position: center;
+        background-repeat: no-repeat;
+      width:100%;
+      height:1000px;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+    }
+    label{
+        color:white;
+    }
+    
+  .form-control:focus{
+color:black
+  }
+  .form-control:hover{
+    color:rgb(5, 16, 17);
+  }
+   form-control.select{
+    padding: 10px;
+    width: 550px;
+    height: 40px;
+    color:rgb(5, 16, 17);
+    color:black
+  } 
