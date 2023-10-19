@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./customer-home.component.css']
 })
 export class CustomerHomeComponent {
+  //const userName=JSON.parse(localStorage.getItem('userName')+'');
 
 }

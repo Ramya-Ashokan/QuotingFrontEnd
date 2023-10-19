@@ -6,9 +6,9 @@
                         <div class="row gx-0">
                             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</small>
-                                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</small>
-                                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>info@example.com</small>
+                                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>123 Street Chennai,Tamil Nadu,India</small>
+                                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>9876543210</small>
+                                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>telequotepro123@gmail.com</small>
                                 </div>
                             </div>
                             <div class="col-lg-4 text-center text-lg-end">
@@ -64,17 +64,20 @@
                             </div>
                         </nav>
                     
-                        <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
-                            <div class="row py-5">
+                        <div class="container-fluid bg-primary py-2 bg-header" style="margin-bottom: 60px; height:200px " >
+                            <div class="row py-2">
                                 <div class="col-12 pt-lg-5 mt-lg-5 text-center">
-                                    <h1 class="display-4 text-white animated zoomIn">Sign In</h1>
+                                    <h3 class="display-6 text-white animated zoomIn">Sign In</h3>
                                     <a href="" class="h5 text-white">Home</a>
                                     <i class="far fa-circle text-white px-2"></i>
-                                    <a href="" class="h5 text-white">Sign In</a>
+                                    <a href=""  routerLink="/signin" class="h5 text-white">Sign In</a>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    
+  
                     <!-- Navbar End -->
                     
                     
@@ -132,12 +135,13 @@
                                       <div>
                                       
                                       <button class="btn btn-block"   type="submit" [disabled]="loginForm.invalid">Login</button><br><br>
+                                      <div *ngIf="errorMessage" class="error-message" style="color:red">{{ errorMessage }}</div> 
                                       <button class="btn btn-block" type="reset" >Clear</button>
                                     </div>
-                                    <!-- <div *ngIf="loginError"  class="error-message">
-                                        {{ loginError }}
-                                      </div> -->
-                                      <div *ngIf="errorMessage" class="error-message" style="color:red">{{ errorMessage }}</div> 
+                                     <div *ngIf="successMessage"  class="success-message" style="color:rgb(0, 255, 76)">
+                                        {{ successMessage }}
+                                      </div> 
+                                      
                                 </form>
                             </div>
                         </div>

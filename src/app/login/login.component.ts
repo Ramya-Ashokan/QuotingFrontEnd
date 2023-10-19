@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterServiceService } from '../Services/Registerservice.service';
-
+import { Customer } from '../modules/Customer';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,7 +17,8 @@ pswd1='Admin@123';
 successMessage:any;
 errorMessage:any;
   loginError: string|any;
-
+currentUser:any;
+userName:any;
 constructor(private formBuilder:FormBuilder,private router:Router,private rService:RegisterServiceService)
 {
   this.loginForm=this.formBuilder.group(
@@ -27,14 +28,18 @@ constructor(private formBuilder:FormBuilder,private router:Router,private rServi
     }
   );
 }
+
+
+
+
 // get formControls(){
 //   return this.loginForm.controls;
 // }
 onSubmit(){
  
-  const ee1=this.loginForm.controls['email'].value;
-  const ps1=this.loginForm.controls['password'].value;
- this.router.navigate(['/CustomerHomePage']);
+//   const ee1=this.loginForm.controls['email'].value;
+//   const ps1=this.loginForm.controls['password'].value;
+//  this.router.navigate(['/CustomerHomePage']);
 
  const ee=this.loginForm.controls['email'].value;
  const ps=this.loginForm.controls['password'].value;
@@ -51,9 +56,9 @@ if(ee==this.e1&& ps==this.pswd1)
   console.log("login sucess");
   this.router.navigate(['/adminHome']);
 }
-// else{
-//   this.errorMessage='Invalid email or password try again';
-// }
+else{
+  this.errorMessage='Invalid email or password try again';
+}
 
 //login method
 const email = this.loginForm.get('email')?.value;
@@ -64,12 +69,26 @@ console.log(email);
 console.log(password);
 this.rService.login(email,password).subscribe(
   (response:any)=>{
-    if(response.status==="success"){
-    console.log('Login Successfull!',response);
+    
+      localStorage.setItem('currentUser', JSON.stringify(response));//object
+      localStorage.setItem('userName',JSON.stringify(response.user.userName));//object attribute
+      localStorage.setItem('email',JSON.stringify(response.user.email));
+     localStorage.setItem('registerState',JSON.stringify(response.user.inputStates));
+     
+      const storedUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+      const userName=JSON.parse(localStorage.getItem('userName')+'');
+      const email=JSON.parse(localStorage.getItem('email')+'');
+      const registerState=JSON.parse(localStorage.getItem('registerState')+'');
+      console.log("local storage",storedUser);
+      console.log("UserName",userName);
+      console.log("email",email);
+      console.log("register states",registerState);
+      
+
     this.successMessage="Login Successfull!";
      this.errorMessage='';//to clear previous error meassage
      this.router.navigate(['/customerHome']);
-    }
+    
     // else if (response.status === 'invalid') {
     //   this.loginError = 'Invalid email or password. Please try again.';
     //   this.cdr.detectChanges();
@@ -78,13 +97,17 @@ this.rService.login(email,password).subscribe(
   (error:any)=>
   {
 console.error('Login Failed:',error);
-this.errorMessage='Login Failed.Please enter valid credentials';
+this.errorMessage='Login Failed.Password Mismatch';
 this.successMessage='';
   }
   );
 
   }
-}}
+}
+
+// Convert the object to a JSON string and store it in local storage
+
+}
 
 
 

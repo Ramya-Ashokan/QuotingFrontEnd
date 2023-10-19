@@ -10,7 +10,7 @@ import { RegisterServiceService } from 'src/app/Services/Registerservice.service
 export class CustomerLogoutComponent {
 
   constructor(private authService:RegisterServiceService, private router: Router) {
-    // this.authService.logout();
+    //this.authService.logout();
     this.router.navigate(['/signin']); // Redirect to login page after logout
   }
 }

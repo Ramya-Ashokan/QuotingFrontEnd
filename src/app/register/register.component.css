@@ -1,11 +1,12 @@
   .header.home {
-       
+        margin-top: 0px;
         margin-bottom: 50px;
+        padding:0px;
         background: linear-gradient(rgb(0, 122, 156), rgba(0, 125, 156, 0.9), rgb(0, 117, 156));
         background-position: center;
         background-repeat: no-repeat;
       width:100%;
-      height:1000px;
+      height:750px;
       display:flex;
       justify-content: center;
       align-items: center;

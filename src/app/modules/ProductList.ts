@@ -12,7 +12,7 @@ import { Product,Subscription,Location } from "./Product";
         new Product('7','808 plan','unlimited voice calls,900 SMS,2gb/day free wynk caller tunes,hotstar subscription',809,1,'wireless','Bangalore'),
    
     ];
-    export let ptypes:String[]=['All','wired','wireless'];
+    export let ptypes:String[]=['All','Wired','Wireless'];
     export let locations:String[]=['All','Chennai','Bangalore','Hyderabad'];
     export let terms:number[]=[1,3,6,12];
     

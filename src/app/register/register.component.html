@@ -3,9 +3,9 @@
     <div class="row gx-0">
         <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
             <div class="d-inline-flex align-items-center" style="height: 45px;">
-                <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</small>
-                <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</small>
-                <small class="text-light"><i class="fa fa-envelope-open me-2"></i>info@example.com</small>
+                <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>123 Street, Chennai,Tamil Nadu, India</small>
+                <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>9876543210</small>
+                <small class="text-light"><i class="fa fa-envelope-open me-2"></i>telequotepro123@gmail.com</small>
             </div>
         </div>
         <div class="col-lg-4 text-center text-lg-end">
@@ -61,13 +61,13 @@
         </div>
     </nav>
 
-    <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
-        <div class="row py-5">
+    <div class="container-fluid bg-primary py-2 bg-header" style="margin-bottom: 10px; height:200px " >
+        <div class="row py-2">
             <div class="col-12 pt-lg-5 mt-lg-5 text-center">
-                <h1 class="display-4 text-white animated zoomIn">Sign Up</h1>
+                <h1 class="display-6 text-white animated zoomIn">Sign Up</h1>
                 <a href="" class="h5 text-white">Home</a>
                 <i class="far fa-circle text-white px-2"></i>
-                <a href="" class="h5 text-white">Sign Up</a>
+                <a href="" routerLink="/signup" class="h5 text-white">Sign Up</a>
             </div>
         </div>
     </div>
@@ -75,10 +75,15 @@
 <!-- Navbar End -->
 
 
-
+<br><br>
 <!--register form start-->
+
+
+
 <div class="header home">
-<div class="col-lg-6 wow slideInUp" >
+   
+<div class="col-lg-6 wow slideInUp d-flex justify-content-center align-items-center  flex-column" ><br>
+    <h1 style="text-align: center; color:#fff">REGISTRATION FORM</h1>
     <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
         <div class="row g-3">
             <div class="col-md-6">
@@ -169,7 +174,7 @@
           <label for="inputState">State</label>
           <select class="form-control btn-outline-dark border-0 bg-light px-4" formControlName="inputStates"  (change) ="onStateChange()"  id="inputState" style="height: 55px;">
                               <option value="" selected>Select State</option>
-                              <option value="Andra Pradesh">Andra Pradesh</option>
+                              <option value="Andhra Pradesh">Andhra Pradesh</option>
                               
                               <option value="Karnataka">Karnataka</option>
                               <option value="Kerala">Kerala</option>

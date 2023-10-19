@@ -17,7 +17,7 @@
              <a  class="nav-item nav-link active" routerLink="/adminHome">Home</a>
              <a  class="nav-item nav-link" routerLink="/addproducts">AddProducts</a>
              <a  class="nav-item nav-link" routerLink="/adminViewProducts">ViewProducts </a>
-             
+        
             
              <!-- <a href="courses.html" class="nav-item nav-link">Sign up</a> -->
              <!-- <div class="nav-item dropdown">
@@ -36,3 +36,53 @@
        
         </div>
    </nav>
+
+<br><br>
+
+
+  <div>
+    <table class="custom-table">
+        <thead>
+          <tr>
+    
+            <th>ID</th>
+            <th>product Name</th>
+            <th>Customer Type</th>
+            <th>Features</th>
+            <th>Validity</th>
+            <th>Price</th>
+            <th>Subscription </th>
+            <th>Location</th>
+            <th colspan="2">options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of products">
+              
+              <td > {{p.productId}} </td>
+              <td> {{p.productName}} </td>
+              <td> {{p.customerType}} </td>
+              <td>{{p.features}}</td>
+              <td>{{p.validity}}</td>
+              <td> {{p.price}} </td>
+              <td>
+                <ng-container *ngFor="let subscription of p.subscriptions">
+                    <div>ID: {{ subscription.subscriptionId }}</div>
+                    <div>Name: {{ subscription.subscriptionName }}</div>
+                  </ng-container>
+              </td>
+              <td>
+                <ng-container *ngFor="let location of p.locations">
+                    <div>ID: {{ location.locationId }}</div>
+                    <div>Name: {{ location.locationName }}</div>
+                  </ng-container>
+              </td>
+              <td><button class="edit-btn" (click)="editById(p.productId)">Edit</button></td>
+              <td><input  type="button"class="delete-btn" (click)="deleteById(p.productId)" value="Delete"></td>
+         
+              <div *ngIf="successMessage" class="success-message" style="color:green">{{successMessage }}</div> 
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    

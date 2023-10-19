@@ -35,7 +35,7 @@ export class AppModule { }
   ],
   imports: [
     CommonModule,
-    CustomerModuleRoutingModule,FormsModule,  FormsModule
+    CustomerModuleRoutingModule,FormsModule
   ]
 })
 export class CustomerModuleModule { }

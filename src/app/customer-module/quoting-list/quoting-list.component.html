@@ -17,7 +17,7 @@
          <div class="collapse navbar-collapse" id="navbarCollapse">
              <div class="navbar-nav ms-auto p-4 p-lg-0">
                  <a  class="nav-item nav-link " routerLink="/customerHome">Home</a>
-                 <a  class="nav-item nav-link " routerLink="/customerHome">Business</a>
+                 <!-- <a  class="nav-item nav-link " routerLink="/customerHome">Business</a> -->
     
                  <a  class="nav-item nav-link" routerLink="/Cusview products">View Products</a>
                 <!-- <button type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button> -->
@@ -44,20 +44,34 @@
         <thead>
             <tr>
                 <th>Name</th>
+                <th>Features</th>
+                <th>Subscriptions</th>
                 <th>Price</th>
-                <th>Validity<small> Month</small></th>
+                <th>Validity</th>
+                <th>Quantity</th>
+                <th>subTotal</th>
+                <th colspan="2">Choices</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let p of selectedProducts">
                 <td>{{p.productName}}</td>
+                <td>{{p.features}}</td>
+                <td>{{p.subscriptions}}</td>
                 <td>{{p.price}}</td>
                 <td>{{p.validity}}</td>
+                <td>{{p.quantity}}</td>
+                <td>{{p.subTotal}}</td>
+                <td><button (click)="removeQuote(p)">Remove</button></td>
+                <td><button (click)="deleteByIdEmail(p)">Delete</button></td>
             </tr>
         </tbody>
-    </table></div> <h3 id="msg">Total Price:&#x20B9;{{getTotalPrice()}}</h3></div>
+    </table></div> <h3 id="msg">Total Price:&#x20B9;{{getTotalPrice()}}</h3>
+    </div>
 
- <div *ngIf="selectedProducts.length==0">
+    <div *ngIf="errorMessage" class="error-message" style="color:red">{{ errorMessage }}</div> 
+
+<div *ngIf="selectedProducts.length==0">
     <h1>No products selected for quote</h1>
 
- </div>
+ </div> 

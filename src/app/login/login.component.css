@@ -59,7 +59,9 @@
     .header.home {
        
         margin-bottom: 50px;
-        background: linear-gradient(rgba(0, 83, 156, 1), rgba(0, 83, 156, .9), rgba(0, 83, 156, 1));
+        background: linear-gradient(rgb(0, 122, 156), rgba(0, 125, 156, 0.9), rgb(0, 117, 156));
+
+        /* background: linear-gradient(rgba(0, 83, 156, 1), rgba(0, 83, 156, .9), rgba(0, 83, 156, 1)); */
         background-position: center;
         background-repeat: no-repeat;
       width:100%;

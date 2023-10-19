@@ -37,7 +37,7 @@ message:any;
 
   public stateDistricts: { [key: string]: string[] } = {
 
-    'Andra Pradesh': [
+    'Andhra Pradesh': [
 
       'Anantapur',
 
